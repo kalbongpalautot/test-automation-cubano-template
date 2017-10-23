@@ -1,7 +1,5 @@
 package org.concordion.cubano.driver.workflow;
 
-import org.concordion.cubano.driver.services.ExampleRestApi;
-import org.concordion.cubano.driver.ui.google.GoogleSearchPage;
 import org.concordion.cubano.driver.ui.westpac.FXTravelMigrantPage;
 import org.concordion.cubano.driver.BrowserBasedTest;
 
@@ -12,14 +10,6 @@ public class Workflow {
 		this.test = test;
 	}
 
-	public GoogleSearchPage openSearch() {
-		return GoogleSearchPage.open(test);
-	}
-
-	public ExampleRestApi restExample() {
-		return new ExampleRestApi();
-	}
-	
 	public FXTravelMigrantPage openCurrencyConverter() {
 		return FXTravelMigrantPage.open(test);
 	}

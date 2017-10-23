@@ -1,4 +1,4 @@
-# test-automation-sample
+# test-automation-westpac
 
 [Eclise Setup](docs/EclipseSetup.md)
 

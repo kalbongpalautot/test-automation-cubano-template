@@ -10,10 +10,6 @@ public class AppConfig {
     private static final Logger LOGGER = LoggerFactory.getLogger(AppConfig.class);
     private final PropertyLoader propertyLoader;
 
-    private String baseUrl;
-    private String searchUrl;
-    private String dbSchema;
-    private String dbUrl;
 	private String westpacUrl;
 	private WebDriverConfig webDriverConfig;
 
@@ -36,7 +32,7 @@ public class AppConfig {
 
     public void logSettings() {
         LOGGER.info("Environment:        " + Config.getInstance().getEnvironment());
-        LOGGER.info("url:                " + baseUrl);
+        LOGGER.info("url:                " + westpacUrl);
         LOGGER.info("Browser:            " + webDriverConfig.getBrowserProvider());
 
         if (!webDriverConfig.getBrowserDimension().isEmpty()) {
@@ -45,34 +41,12 @@ public class AppConfig {
     }
 
     private void loadProperties() {
-        baseUrl = propertyLoader.getProperty("baseUrl");
-        searchUrl = propertyLoader.getProperty("searchUrl");
         westpacUrl = propertyLoader.getProperty("westpacUrl");
-
-        // dbUrl = getProperty("database.url");
-        // dbSchema = getProperty("database.schema");
-
     }
 
     // Application properties
-    public String getBaseUrl() {
-        return baseUrl;
-    }
-
-    public String getSearchUrl() {
-        return searchUrl;
-    }
-    
     public String getWestpacUrl() {
         return westpacUrl;
-    }
-
-    public String getDatabaseUrl() {
-        return dbUrl;
-    }
-
-    public String getDatabaseSchema() {
-        return dbSchema;
     }
 }
 

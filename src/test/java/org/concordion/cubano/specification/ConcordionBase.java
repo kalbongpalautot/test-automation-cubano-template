@@ -51,7 +51,7 @@ public abstract class ConcordionBase implements BrowserBasedTest {
             .withRerunParameter("TEST_CLASSNAME", this.getClass().getName().replace(ConcordionBase.class.getPackage().getName() + ".", ""))
             .withRerunParameter("SVN_TAG", EnvironmentExtension.getSubversionUrl())
             .withEnvironment(Config.getInstance().getEnvironment().toUpperCase())
-            .withURL(AppConfig.getInstance().getBaseUrl());
+            .withURL(AppConfig.getInstance().getWestpacUrl());
 
 // Attempt 1: 
 //    @ConcordionScoped(Scope.SPECIFICATION)
@@ -72,7 +72,7 @@ public abstract class ConcordionBase implements BrowserBasedTest {
         HttpEasy.withDefaults()
             .allowAllHosts()
             .trustAllCertificates()
-            .baseUrl(config.getBaseUrl());
+            .baseUrl(config.getWestpacUrl());
 
         if (proxyConfig.isProxyRequired()) {
             HttpEasy.withDefaults()
