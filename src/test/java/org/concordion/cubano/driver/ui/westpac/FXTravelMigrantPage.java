@@ -47,14 +47,9 @@ public class FXTravelMigrantPage extends PageObject<FXTravelMigrantPage> {
 			getBrowser().getDriver().switchTo().frame(iframe);
 		}
 
-		capturePage(currencyConverterComponent.getConvertFrom());
-		new Select(currencyConverterComponent.getConvertFrom()).selectByVisibleText(fromCurrency);
-
-		capturePage(currencyConverterComponent.getAmount());
+		selectOptions(currencyConverterComponent.getConvertFrom(), fromCurrency);
 		currencyConverterComponent.getAmount().sendKeys(money);
-
-		capturePage(currencyConverterComponent.getConvertTo());
-		new Select(currencyConverterComponent.getConvertTo()).selectByVisibleText(toCurrency);
+		selectOptions(currencyConverterComponent.getConvertTo(), toCurrency);
 
 		// after clicking need to refresh and load the elements again
 		capturePage(currencyConverterComponent.getConvert());
@@ -75,5 +70,12 @@ public class FXTravelMigrantPage extends PageObject<FXTravelMigrantPage> {
 		capturePage(currencyConverterComponent.getErrorMessage());
 
 		return currencyConverterComponent.getErrorMessage().getText();
+	}
+
+	// need to use "Select" instead as apparently WebElement does not work properly
+	// on this html object using Gecko Driver
+	private void selectOptions(WebElement element, String fromCurrency) {
+		capturePage(element);
+		new Select(element).selectByVisibleText(fromCurrency);
 	}
 }
