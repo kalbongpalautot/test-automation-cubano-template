@@ -11,6 +11,7 @@ public class AppConfig {
     private final PropertyLoader propertyLoader;
 
 	private String westpacUrl;
+	private String serviceUrl;
 	private WebDriverConfig webDriverConfig;
 
     private static class Holder {
@@ -42,11 +43,16 @@ public class AppConfig {
 
     private void loadProperties() {
         westpacUrl = propertyLoader.getProperty("westpacUrl");
+        serviceUrl = propertyLoader.getProperty("serviceUrl");
     }
 
     // Application properties
     public String getWestpacUrl() {
         return westpacUrl;
+    }
+    
+    public String getServiceUrl() {
+    		return serviceUrl;
     }
 }
 

@@ -25,7 +25,7 @@ import org.slf4j.LoggerFactory;
 
 import ch.qos.logback.classic.Level;
 
-import org.concordion.cubano.config.data.DataCleanupHelper;
+import org.concordion.cubano.data.DataCleanupHelper;
 import org.concordion.cubano.driver.concordion.ExceptionHtmlCaptureExtension;
 
 /**

@@ -72,7 +72,7 @@ public abstract class ConcordionBase implements BrowserBasedTest {
         HttpEasy.withDefaults()
             .allowAllHosts()
             .trustAllCertificates()
-            .baseUrl(config.getWestpacUrl());
+            .baseUrl(config.getServiceUrl());
 
         if (proxyConfig.isProxyRequired()) {
             HttpEasy.withDefaults()
